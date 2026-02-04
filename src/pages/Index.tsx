@@ -7,7 +7,6 @@ import { LearningChecklist } from '@/components/LearningChecklist';
 import { ImageGallery } from '@/components/ImageGallery';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { WhatYouGetSection } from '@/components/WhatYouGetSection';
-import { TestimonialsImageSection } from '@/components/TestimonialsImageSection';
 import { FAQSection } from '@/components/FAQSection';
 import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
@@ -35,7 +34,6 @@ const LandingPageContent = () => {
         <ImageGallery />
         <TestimonialsSection />
         <WhatYouGetSection />
-        <TestimonialsImageSection />
         <FAQSection />
         <CTASection />
       </main>
