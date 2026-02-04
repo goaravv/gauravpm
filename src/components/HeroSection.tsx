@@ -19,53 +19,28 @@ export const HeroSection = () => {
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="container-narrow mx-auto relative z-10">
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-2 text-sm">
-              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-primary-foreground">Live Webinar • Limited Seats</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-primary-foreground">
-              Master Performance Marketing & Generate{' '}
-              <span className="text-accent">Consistent Sales</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl">
-              Join this exclusive live session and learn the proven strategies that have helped businesses generate crores in revenue through strategic ad campaigns.
-            </p>
-
-            <ul className="space-y-3">
-              {benefits.map((benefit, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-primary-foreground/90"
-                  style={{ animationDelay: `${(index + 1) * 100}ms` }}
-                >
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="hero" size="xl" onClick={openForm}>
-                Join Webinar Now
-                <ArrowRight className="ml-2" />
-              </Button>
-            </div>
-
-            <p className="text-sm text-primary-foreground/60">
-              ✓ No credit card required • ✓ Instant access • ✓ Live Q&A included
-            </p>
+        {/* Desktop Layout - Centered Video */}
+        <div className="hidden lg:flex flex-col items-center text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-2 text-sm mb-6 animate-fade-in-up">
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            <span className="text-primary-foreground">Live Webinar • Limited Seats</span>
           </div>
 
-          {/* Right Column - Video */}
-          <div className="animate-fade-in-up animation-delay-200">
+          {/* Headline */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-primary-foreground max-w-4xl animate-fade-in-up">
+            Master Performance Marketing & Generate{' '}
+            <span className="text-accent">Consistent Sales</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mt-6 animate-fade-in-up animation-delay-100">
+            Join this exclusive live session and learn the proven strategies that have helped businesses generate crores in revenue through strategic ad campaigns.
+          </p>
+
+          {/* Video - Large and Centered */}
+          <div className="w-full max-w-4xl mt-10 animate-fade-in-up animation-delay-200">
             <div className="relative group">
-              {/* Video frame */}
               <div className="relative bg-card rounded-2xl overflow-hidden shadow-2xl border border-border">
                 <div className="aspect-video">
                   <iframe
@@ -77,12 +52,35 @@ export const HeroSection = () => {
                   />
                 </div>
               </div>
-
               {/* Floating badge */}
               <div className="absolute -top-3 -right-3 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-float">
                 🔴 Live Session
               </div>
             </div>
+          </div>
+
+          {/* Benefits - Horizontal on Desktop */}
+          <div className="flex flex-wrap justify-center gap-6 mt-10 animate-fade-in-up animation-delay-300">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 text-primary-foreground/90 bg-primary-foreground/5 px-4 py-2 rounded-full"
+              >
+                <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                <span className="text-sm">{benefit}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col items-center gap-4 mt-10 animate-fade-in-up animation-delay-300">
+            <Button variant="hero" size="xl" onClick={openForm}>
+              Join Webinar Now
+              <ArrowRight className="ml-2" />
+            </Button>
+            <p className="text-sm text-primary-foreground/60">
+              ✓ No credit card required • ✓ Instant access • ✓ Live Q&A included
+            </p>
           </div>
         </div>
 
