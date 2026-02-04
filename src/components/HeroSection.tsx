@@ -13,12 +13,12 @@ export const HeroSection = () => {
   const { openForm } = useFormContext();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-primary">
+    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-primary">
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
-      <div className="container-narrow mx-auto px-4 md:px-8 relative z-10">
+      <div className="container-narrow mx-auto relative z-10">
         {/* Desktop Layout */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
