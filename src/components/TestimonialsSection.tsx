@@ -1,4 +1,7 @@
-import { Play } from 'lucide-react';
+import review1 from '@/assets/review-1.png';
+import review2 from '@/assets/review-2.png';
+import review3 from '@/assets/review-3.png';
+import review4 from '@/assets/review-4.png';
 
 const videoTestimonials = [
   {
@@ -11,6 +14,13 @@ const videoTestimonials = [
     vimeoId: '994030340',
     title: 'Client Results',
   },
+];
+
+const reviewImages = [
+  { id: 1, src: review1, alt: 'Client Review - Bennett' },
+  { id: 2, src: review2, alt: 'Client Review - Website Feedback' },
+  { id: 3, src: review3, alt: 'Client Review - Vishal Sharma' },
+  { id: 4, src: review4, alt: 'Client Review - Isha' },
 ];
 
 export const TestimonialsSection = () => {
@@ -49,28 +59,24 @@ export const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Review Screenshots Placeholder - Will be added when images are uploaded */}
+        {/* Review Screenshots */}
         <div className="text-center">
           <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-6">
             More Happy Clients
           </h3>
-          <p className="text-muted-foreground mb-8">
-            Screenshots of real client messages and reviews
-          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* Placeholder for review images */}
-            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Review 1</span>
-            </div>
-            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Review 2</span>
-            </div>
-            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Review 3</span>
-            </div>
-            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Review 4</span>
-            </div>
+            {reviewImages.map((review) => (
+              <div
+                key={review.id}
+                className="border-2 border-border rounded-xl overflow-hidden bg-card transition-all duration-300 hover:border-accent hover:shadow-[var(--card-shadow-hover)] hover:scale-[1.02]"
+              >
+                <img
+                  src={review.src}
+                  alt={review.alt}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
