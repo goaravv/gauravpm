@@ -1,26 +1,15 @@
-import { Star, Quote } from 'lucide-react';
+import { Play } from 'lucide-react';
 
-const testimonials = [
+const videoTestimonials = [
   {
-    name: 'Priya Mehta',
-    role: 'E-commerce Founder',
-    content: 'After implementing Gaurav\'s funnel strategy, our lead generation increased by 340%. We went from struggling to get 50 leads a month to consistently generating 200+ qualified leads.',
-    stats: '340% increase in leads',
-    rating: 5,
+    id: 1,
+    vimeoId: '966576801',
+    title: 'Client Success Story',
   },
   {
-    name: 'Rajesh Kumar',
-    role: 'Digital Agency Owner',
-    content: 'The ROI on ad spend has been phenomenal. Gaurav\'s approach to campaign optimization helped us reduce cost per acquisition by 60% while scaling our client\'s business.',
-    stats: '60% lower CPA',
-    rating: 5,
-  },
-  {
-    name: 'Ananya Singh',
-    role: 'SaaS Startup CEO',
-    content: 'We were burning money on ads with no clear direction. After Gaurav\'s training, we restructured our entire funnel and saw our first profitable month within 6 weeks.',
-    stats: '₹25L revenue in 6 weeks',
-    rating: 5,
+    id: 2,
+    vimeoId: '994030340',
+    title: 'Client Results',
   },
 ];
 
@@ -33,55 +22,56 @@ export const TestimonialsSection = () => {
             Success Stories
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-3">
-            Real Results from Real People
+            What Our Clients Say
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Don't just take my word for it. Here's what people are saying about the strategies they learned.
+            Real video testimonials from clients who have transformed their business with our strategies.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {testimonials.map((testimonial, index) => (
+        {/* Video Testimonials */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+          {videoTestimonials.map((video) => (
             <div
-              key={index}
-              className="card-elevated p-6 md:p-8 relative bg-card"
+              key={video.id}
+              className="card-elevated overflow-hidden bg-card"
             >
-              {/* Quote icon */}
-              <div className="absolute top-4 right-4 text-accent/20">
-                <Quote className="w-10 h-10" />
-              </div>
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-500 fill-amber-500" />
-                ))}
-              </div>
-
-              {/* Content */}
-              <p className="text-foreground leading-relaxed mb-6">
-                "{testimonial.content}"
-              </p>
-
-              {/* Stats badge */}
-              <div className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-semibold mb-6">
-                {testimonial.stats}
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-accent font-bold">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
+              <div className="aspect-video relative">
+                <iframe
+                  src={`https://player.vimeo.com/video/${video.vimeoId}?h=0&title=0&byline=0&portrait=0`}
+                  className="w-full h-full absolute inset-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title={video.title}
+                />
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Review Screenshots Placeholder - Will be added when images are uploaded */}
+        <div className="text-center">
+          <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-6">
+            More Happy Clients
+          </h3>
+          <p className="text-muted-foreground mb-8">
+            Screenshots of real client messages and reviews
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Placeholder for review images */}
+            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Review 1</span>
+            </div>
+            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Review 2</span>
+            </div>
+            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Review 3</span>
+            </div>
+            <div className="border-2 border-dashed border-border rounded-xl p-8 flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Review 4</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
