@@ -28,7 +28,9 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl md:text-2xl font-heading font-bold text-foreground">
+            <span className={`text-xl md:text-2xl font-heading font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}>
               Gaurav Sharma
             </span>
           </div>
@@ -42,7 +44,9 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className={`md:hidden p-2 transition-colors duration-300 ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
