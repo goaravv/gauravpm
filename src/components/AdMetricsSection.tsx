@@ -13,7 +13,7 @@ import adMetrics12 from '@/assets/ad-metrics-12.png';
 
 const screenshots = [
   { id: 1, src: adMetrics8, alt: 'Meta Ads - Insurance Lead Generation Campaign', label: 'Meta Ads - 12,303 Leads' },
-  { id: 2, src: adMetrics7, alt: 'Meta Ads - Messaging Campaign', label: 'Meta Ads - 2,555 Conversations' },
+  { id: 2, src: adMetrics7, alt: 'Meta Ads - E-commerce Campaigns ₹19.98L Spent', label: 'Meta Ads - ₹1.06 Cr Revenue' },
   { id: 3, src: adMetrics4, alt: 'Meta Ads - Lead Generation Campaigns', label: 'Meta Ads - Lead Campaigns' },
   { id: 4, src: adMetrics6, alt: 'Meta Ads - Sales Campaigns', label: 'Meta Ads - Sales Results' },
   { id: 5, src: adMetrics9, alt: 'Google Ads - 438 Conversions', label: 'Google Ads - 438 Conversions' },
