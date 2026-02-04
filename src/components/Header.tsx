@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useFormContext } from '@/context/FormContext';
-import { Menu, X } from 'lucide-react';
 
 export const Header = () => {
   const { openForm } = useFormContext();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,40 +33,16 @@ export const Header = () => {
             </span>
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button variant="cta" size="lg" onClick={openForm}>
-              Join Webinar
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden p-2 transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          {/* CTA Button - visible on all screen sizes */}
+          <Button 
+            variant="cta" 
+            size="default"
+            className="md:size-lg"
+            onClick={openForm}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Join Webinar
+          </Button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <Button
-              variant="cta"
-              size="lg"
-              className="w-full"
-              onClick={() => {
-                openForm();
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Join Webinar
-            </Button>
-          </div>
-        )}
       </div>
     </header>
   );
