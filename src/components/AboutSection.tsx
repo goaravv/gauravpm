@@ -1,26 +1,14 @@
 import { CheckCircle } from 'lucide-react';
 import gauravProfile from '@/assets/event-1.jpg';
-
-const credentials = [
-  'Performance Marketing Expert with 12+ years of hands-on experience',
-  'Managed over ₹50 Crore in ad spend across industries',
-  'Built 200+ high-converting funnels for businesses of all sizes',
-  'Trained 5,000+ marketers and business owners',
-];
-
+const credentials = ['Performance Marketing Expert with 12+ years of hands-on experience', 'Managed over ₹50 Crore in ad spend across industries', 'Built 200+ high-converting funnels for businesses of all sizes', 'Trained 5,000+ marketers and business owners'];
 export const AboutSection = () => {
-  return (
-    <section className="section-padding bg-background">
+  return <section className="section-padding bg-background">
       <div className="container-narrow mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Photo */}
           <div className="relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={gauravProfile} 
-                alt="Gaurav Sharma - Performance Marketing Expert"
-                className="w-full h-full object-cover"
-              />
+              <img alt="Gaurav Sharma - Performance Marketing Expert" className="w-full h-full object-cover" src="/lovable-uploads/1f1e4c8a-5a50-4e32-bee9-415a539d4fbd.png" />
             </div>
             
             {/* Decorative element */}
@@ -48,16 +36,13 @@ export const AboutSection = () => {
             </p>
 
             <ul className="space-y-3 pt-2">
-              {credentials.map((credential, index) => (
-                <li key={index} className="flex items-start gap-3">
+              {credentials.map((credential, index) => <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">{credential}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
