@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import ecommerceSale1 from '@/assets/ecommerce-sale-1.png';
+import ecommerceSale2 from '@/assets/ecommerce-sale-2.png';
+import evCompanyLead from '@/assets/ev-company-lead.png';
+import aiCompanyLead from '@/assets/ai-company-lead.png';
 import adMetrics4 from '@/assets/ad-metrics-4.png';
 import adMetrics6 from '@/assets/ad-metrics-6.png';
 import adMetrics7 from '@/assets/ad-metrics-7.png';
@@ -12,14 +16,18 @@ import adMetrics11 from '@/assets/ad-metrics-11.png';
 import adMetrics12 from '@/assets/ad-metrics-12.png';
 
 const screenshots = [
-  { id: 1, src: adMetrics8, alt: 'Meta Ads - Insurance Lead Generation Campaign', label: 'Meta Ads - 12,303 Leads' },
-  { id: 2, src: adMetrics7, alt: 'Meta Ads - E-commerce Campaigns ₹19.98L Spent', label: 'Meta Ads - ₹1.06 Cr Revenue' },
-  { id: 3, src: adMetrics4, alt: 'Meta Ads - Lead Generation Campaigns', label: 'Meta Ads - Lead Campaigns' },
-  { id: 4, src: adMetrics6, alt: 'Meta Ads - Sales Campaigns', label: 'Meta Ads - Sales Results' },
-  { id: 5, src: adMetrics9, alt: 'Google Ads - 438 Conversions', label: 'Google Ads - 438 Conversions' },
-  { id: 6, src: adMetrics10, alt: 'Google Ads - 97 Conversions', label: 'Google Ads - 97 Conversions' },
-  { id: 7, src: adMetrics11, alt: 'Google Ads - 139 Conversions', label: 'Google Ads - 139 Conversions' },
-  { id: 8, src: adMetrics12, alt: 'Google Ads - 6.67K Sales', label: 'Google Ads - 6.67K Sales' },
+  { id: 1, src: ecommerceSale2, alt: 'E-Commerce Sales - ₹19.98L Spent', label: 'Meta Ads - ₹1.06 Cr Revenue' },
+  { id: 2, src: ecommerceSale1, alt: 'E-Commerce Sales - ₹11.16L Spent', label: 'Meta Ads - ₹64L Revenue' },
+  { id: 3, src: evCompanyLead, alt: 'EV Company Lead Generation', label: 'Meta Ads - EV Company Leads' },
+  { id: 4, src: aiCompanyLead, alt: 'AI Company Lead Generation', label: 'Meta Ads - AI Course Leads' },
+  { id: 5, src: adMetrics8, alt: 'Meta Ads - Insurance Lead Generation Campaign', label: 'Meta Ads - 12,303 Leads' },
+  { id: 6, src: adMetrics7, alt: 'Meta Ads - Messaging Campaign', label: 'Meta Ads - 2,555 Conversations' },
+  { id: 7, src: adMetrics4, alt: 'Meta Ads - Lead Generation Campaigns', label: 'Meta Ads - Lead Campaigns' },
+  { id: 8, src: adMetrics6, alt: 'Meta Ads - Sales Campaigns', label: 'Meta Ads - Sales Results' },
+  { id: 9, src: adMetrics9, alt: 'Google Ads - 438 Conversions', label: 'Google Ads - 438 Conversions' },
+  { id: 10, src: adMetrics10, alt: 'Google Ads - 97 Conversions', label: 'Google Ads - 97 Conversions' },
+  { id: 11, src: adMetrics11, alt: 'Google Ads - 139 Conversions', label: 'Google Ads - 139 Conversions' },
+  { id: 12, src: adMetrics12, alt: 'Google Ads - 6.67K Sales', label: 'Google Ads - 6.67K Sales' },
 ];
 
 export const AdMetricsSection = () => {
