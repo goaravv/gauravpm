@@ -14,6 +14,7 @@ import { Footer } from '@/components/Footer';
 import { WebinarForm } from '@/components/WebinarForm';
 import { StickyMobileCTA } from '@/components/StickyMobileCTA';
 import { ThankYouPage } from '@/components/ThankYouPage';
+import { AdMetricsSection } from '@/components/AdMetricsSection';
 
 const LandingPageContent = () => {
   const { isSubmitted } = useFormContext();
@@ -28,6 +29,7 @@ const LandingPageContent = () => {
       <main>
         <HeroSection />
         <TrustStrip />
+        <AdMetricsSection />
         <AboutSection />
         <LearningChecklist />
         <ImageGallery />
