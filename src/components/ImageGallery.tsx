@@ -1,17 +1,21 @@
-import gallerySpeaking from '@/assets/gallery-speaking.jpg';
-import galleryWorkshop from '@/assets/gallery-workshop.jpg';
-import galleryConsulting from '@/assets/gallery-consulting.jpg';
-import galleryLive from '@/assets/gallery-live.jpg';
-import galleryTraining from '@/assets/gallery-training.jpg';
-import galleryPanel from '@/assets/gallery-panel.jpg';
+import event1 from '@/assets/event-1.jpg';
+import event2 from '@/assets/event-2.png';
+import event3 from '@/assets/event-3.png';
+import event4 from '@/assets/event-4.png';
+import event5 from '@/assets/event-5.png';
+import event6 from '@/assets/event-6.png';
+import event9 from '@/assets/event-9.png';
+import event10 from '@/assets/event-10.png';
 
 const galleryImages = [
-  { id: 1, label: 'Speaking at Marketing Summit', image: gallerySpeaking },
-  { id: 2, label: 'Workshop on Funnel Building', image: galleryWorkshop },
-  { id: 3, label: 'One-on-One Consulting', image: galleryConsulting },
-  { id: 4, label: 'Live Strategy Session', image: galleryLive },
-  { id: 5, label: 'Team Training Workshop', image: galleryTraining },
-  { id: 6, label: 'Industry Conference Panel', image: galleryPanel },
+  { id: 1, label: 'Google Search Central Live 2023', image: event1 },
+  { id: 2, label: 'Networking at Marketing Summit', image: event2 },
+  { id: 3, label: 'Meeting Industry Leaders', image: event3 },
+  { id: 4, label: 'Conference Networking', image: event4 },
+  { id: 5, label: 'Industry Meetup', image: event5 },
+  { id: 6, label: 'Marketing Conference', image: event6 },
+  { id: 7, label: 'Behind the Scenes', image: event9 },
+  { id: 8, label: 'Team Connect', image: event10 },
 ];
 
 export const ImageGallery = () => {
@@ -23,14 +27,14 @@ export const ImageGallery = () => {
             In Action
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-3">
-            Speaking, Training & Consulting
+            Networking, Events & Conferences
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            From packed auditoriums to intimate workshops, I've had the privilege of sharing strategies with thousands of marketers and business owners.
+            From industry conferences to marketing summits, connecting with professionals and sharing knowledge across India.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {galleryImages.map((item) => (
             <div
               key={item.id}
@@ -46,8 +50,8 @@ export const ImageGallery = () => {
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-colors duration-300" />
               
               {/* Label */}
-              <div className="absolute inset-0 flex items-end p-4">
-                <span className="text-primary-foreground text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/80 px-3 py-1.5 rounded-lg">
+              <div className="absolute inset-0 flex items-end p-3">
+                <span className="text-primary-foreground text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/80 px-2 py-1 rounded-lg">
                   {item.label}
                 </span>
               </div>
