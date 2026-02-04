@@ -1,5 +1,5 @@
 import { CheckCircle } from 'lucide-react';
-import gauravProfile from '@/assets/gaurav-profile.jpg';
+import gauravProfile from '@/assets/event-1.jpg';
 
 const credentials = [
   'Performance Marketing Expert with 12+ years of hands-on experience',
