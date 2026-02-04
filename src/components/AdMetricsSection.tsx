@@ -8,6 +8,8 @@ import adMetrics7 from '@/assets/ad-metrics-7.png';
 import adMetrics8 from '@/assets/ad-metrics-8.png';
 import adMetrics9 from '@/assets/ad-metrics-9.png';
 import adMetrics10 from '@/assets/ad-metrics-10.png';
+import adMetrics11 from '@/assets/ad-metrics-11.png';
+import adMetrics12 from '@/assets/ad-metrics-12.png';
 
 const screenshots = [
   { id: 1, src: adMetrics8, alt: 'Meta Ads - Insurance Lead Generation Campaign', label: 'Meta Ads - 12,303 Leads' },
@@ -16,6 +18,8 @@ const screenshots = [
   { id: 4, src: adMetrics6, alt: 'Meta Ads - Sales Campaigns', label: 'Meta Ads - Sales Results' },
   { id: 5, src: adMetrics9, alt: 'Google Ads - 438 Conversions', label: 'Google Ads - 438 Conversions' },
   { id: 6, src: adMetrics10, alt: 'Google Ads - 97 Conversions', label: 'Google Ads - 97 Conversions' },
+  { id: 7, src: adMetrics11, alt: 'Google Ads - 139 Conversions', label: 'Google Ads - 139 Conversions' },
+  { id: 8, src: adMetrics12, alt: 'Google Ads - 6.67K Sales', label: 'Google Ads - 6.67K Sales' },
 ];
 
 export const AdMetricsSection = () => {
