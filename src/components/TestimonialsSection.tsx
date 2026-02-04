@@ -26,7 +26,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-secondary">
       <div className="container-narrow mx-auto">
         <div className="text-center mb-12">
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
@@ -44,7 +44,7 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="card-elevated p-6 md:p-8 relative"
+              className="card-elevated p-6 md:p-8 relative bg-card"
             >
               {/* Quote icon */}
               <div className="absolute top-4 right-4 text-accent/20">
@@ -54,7 +54,7 @@ export const TestimonialsSection = () => {
               {/* Rating */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                  <Star key={i} className="w-5 h-5 text-amber-500 fill-amber-500" />
                 ))}
               </div>
 
@@ -70,8 +70,8 @@ export const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold">
+                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                  <span className="text-accent font-bold">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>

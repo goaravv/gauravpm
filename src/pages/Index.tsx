@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { TrustStrip } from '@/components/TrustStrip';
 import { AboutSection } from '@/components/AboutSection';
+import { LearningChecklist } from '@/components/LearningChecklist';
 import { ImageGallery } from '@/components/ImageGallery';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { WhatYouGetSection } from '@/components/WhatYouGetSection';
@@ -28,6 +29,7 @@ const LandingPageContent = () => {
         <HeroSection />
         <TrustStrip />
         <AboutSection />
+        <LearningChecklist />
         <ImageGallery />
         <TestimonialsSection />
         <WhatYouGetSection />

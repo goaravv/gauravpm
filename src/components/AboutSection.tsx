@@ -1,4 +1,5 @@
 import { CheckCircle } from 'lucide-react';
+import gauravProfile from '@/assets/gaurav-profile.jpg';
 
 const credentials = [
   'Performance Marketing Expert with 12+ years of hands-on experience',
@@ -15,16 +16,11 @@ export const AboutSection = () => {
           {/* Photo */}
           <div className="relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder for photo */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-primary-foreground">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-5xl font-heading font-bold text-accent">GS</span>
-                  </div>
-                  <p className="text-lg opacity-80">Professional Photo</p>
-                </div>
-              </div>
+              <img 
+                src={gauravProfile} 
+                alt="Gaurav Sharma - Performance Marketing Expert"
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Decorative element */}

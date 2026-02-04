@@ -13,10 +13,7 @@ export const HeroSection = () => {
   const { openForm } = useFormContext();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[var(--hero-gradient)]" />
-      
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
@@ -24,13 +21,13 @@ export const HeroSection = () => {
       <div className="container-narrow mx-auto px-4 md:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
-          <div className="text-primary-foreground space-y-6 animate-fade-in-up">
+          <div className="space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-2 text-sm">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-accent-foreground/90">Live Webinar • Limited Seats</span>
+              <span className="text-primary-foreground">Live Webinar • Limited Seats</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-primary-foreground">
               Master Performance Marketing & Generate{' '}
               <span className="text-accent">Consistent Sales</span>
             </h1>
@@ -68,10 +65,10 @@ export const HeroSection = () => {
           <div className="animate-fade-in-up animation-delay-200">
             <div className="relative group">
               {/* Video frame */}
-              <div className="relative bg-primary/50 rounded-2xl overflow-hidden shadow-2xl border border-accent/20">
-                <div className="aspect-video bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
+              <div className="relative bg-card rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <div className="aspect-video bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
                   {/* Placeholder video thumbnail */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
                   
                   {/* Play button */}
                   <button className="relative z-10 w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group-hover:shadow-[var(--cta-glow)]">
@@ -80,8 +77,8 @@ export const HeroSection = () => {
                   
                   {/* Video preview text */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-primary/80 backdrop-blur-sm rounded-lg p-3">
-                      <p className="text-primary-foreground text-sm font-medium">
+                    <div className="bg-card/90 backdrop-blur-sm rounded-lg p-3 border border-border">
+                      <p className="text-foreground text-sm font-medium">
                         Watch: How I Generated ₹10 Cr+ Through Performance Marketing
                       </p>
                     </div>
