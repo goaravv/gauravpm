@@ -6,9 +6,9 @@ export const CTASection = () => {
   const { openForm } = useFormContext();
 
   return (
-    <section className="section-padding bg-primary text-primary-foreground">
+    <section className="section-padding bg-primary">
       <div className="container-narrow mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 text-primary-foreground">
           Ready to Transform Your{' '}
           <span className="text-accent">Marketing Results?</span>
         </h2>

@@ -35,13 +35,13 @@ const topics = [
 
 export const WhatYouGetSection = () => {
   return (
-    <section className="section-padding bg-primary text-primary-foreground">
+    <section className="section-padding bg-primary">
       <div className="container-narrow mx-auto">
         <div className="text-center mb-12">
           <span className="text-accent font-semibold text-sm uppercase tracking-wider">
             Webinar Curriculum
           </span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 text-primary-foreground">
             What You'll Learn in This Webinar
           </h2>
           <p className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto">
@@ -53,12 +53,12 @@ export const WhatYouGetSection = () => {
           {topics.map((topic, index) => (
             <div
               key={index}
-              className="group p-6 bg-primary-foreground/5 rounded-xl border border-primary-foreground/10 hover:border-accent/50 hover:bg-primary-foreground/10 transition-all duration-300"
+              className="group p-6 bg-primary-foreground/10 rounded-xl border border-primary-foreground/20 hover:border-accent/50 hover:bg-primary-foreground/15 transition-all duration-300"
             >
               <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
                 <topic.icon className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="text-xl font-heading font-semibold mb-2">
+              <h3 className="text-xl font-heading font-semibold mb-2 text-primary-foreground">
                 {topic.title}
               </h3>
               <p className="text-primary-foreground/70 leading-relaxed">
