@@ -8,7 +8,7 @@ export const AboutSection = () => {
           {/* Photo */}
           <div className="relative">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img alt="Gaurav Sharma - Performance Marketing Expert" className="w-full h-full object-cover" src="/lovable-uploads/1f1e4c8a-5a50-4e32-bee9-415a539d4fbd.png" />
+              <img alt="Gaurav Sharma - Performance Marketing Expert" className="w-full h-full object-cover" src="/lovable-uploads/4619ba86-0da1-4ea6-85f7-3102cc862f13.jpg" />
             </div>
             
             {/* Decorative element */}
