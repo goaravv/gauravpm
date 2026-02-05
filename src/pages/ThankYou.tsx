@@ -33,7 +33,7 @@
                className="w-20 h-20 rounded-full object-cover border-2 border-accent"
              />
              <div className="text-left">
-               <p className="font-semibold text-foreground">Gaurav</p>
+               <p className="font-semibold text-foreground">Gaurav Sharma</p>
                <p className="text-sm text-muted-foreground">Your Webinar Host</p>
              </div>
            </div>
