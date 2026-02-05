@@ -1,14 +1,15 @@
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Zap, Target, Bot } from 'lucide-react';
 import gauravHero from '@/assets/gaurav-hero.png';
  
  export const PortfolioHero = () => {
-   const navigate = useNavigate();
- 
    const scrollToWork = () => {
     document.getElementById('metrics-showcase')?.scrollIntoView({ behavior: 'smooth' });
    };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank');
+  };
  
    return (
     <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-primary">
@@ -40,7 +41,8 @@ import gauravHero from '@/assets/gaurav-hero.png';
               <Button 
                 variant="hero" 
                 size="lg" 
-                onClick={() => window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank')}
+                type="button"
+                onClick={handleWhatsAppClick}
                 className="text-primary"
               >
                 Work With Me
@@ -49,6 +51,7 @@ import gauravHero from '@/assets/gaurav-hero.png';
                <Button
                  variant="outline"
                  size="lg"
+                 type="button"
                  onClick={scrollToWork}
                 className="border-primary-foreground/30 text-primary bg-primary-foreground hover:bg-primary-foreground/80 hover:text-primary"
                >
