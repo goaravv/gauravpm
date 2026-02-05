@@ -50,7 +50,7 @@ export const WebinarForm = () => {
 
   return (
     <Dialog open={isFormOpen} onOpenChange={closeForm}>
-      <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto mx-4 px-5 py-4 sm:p-6">
+      <DialogContent className="sm:max-w-md bg-card border-border max-h-[85vh] overflow-y-auto w-[calc(100%-32px)] max-w-[calc(100%-32px)] sm:max-w-md p-5 sm:p-6 rounded-xl">
         <DialogHeader className="pr-6">
           <DialogTitle className="text-lg sm:text-xl font-heading text-center text-foreground">
             Register for the Webinar
