@@ -50,8 +50,8 @@ export const WebinarForm = () => {
 
   return (
     <Dialog open={isFormOpen} onOpenChange={closeForm}>
-      <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto mx-4 p-4 sm:p-6">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto mx-4 px-5 py-4 sm:p-6">
+        <DialogHeader className="pr-6">
           <DialogTitle className="text-lg sm:text-xl font-heading text-center text-foreground">
             Register for the Webinar
           </DialogTitle>
@@ -62,7 +62,7 @@ export const WebinarForm = () => {
         
         <form onSubmit={handleSubmit} className="space-y-3 mt-3">
           <div className="space-y-1">
-            <Label htmlFor="name" className="text-foreground text-sm">Full Name</Label>
+            <Label htmlFor="name" className="text-foreground text-sm font-medium">Full Name</Label>
             <Input
               id="name"
               name="name"
@@ -70,12 +70,12 @@ export const WebinarForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="email" className="text-foreground text-sm">Email Address</Label>
+            <Label htmlFor="email" className="text-foreground text-sm font-medium">Email Address</Label>
             <Input
               id="email"
               name="email"
@@ -84,12 +84,12 @@ export const WebinarForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="phone" className="text-foreground text-sm">Contact Number</Label>
+            <Label htmlFor="phone" className="text-foreground text-sm font-medium">Contact Number</Label>
             <Input
               id="phone"
               name="phone"
@@ -98,12 +98,12 @@ export const WebinarForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="city" className="text-foreground text-sm">City</Label>
+            <Label htmlFor="city" className="text-foreground text-sm font-medium">City</Label>
             <Input
               id="city"
               name="city"
@@ -111,12 +111,12 @@ export const WebinarForm = () => {
               value={formData.city}
               onChange={handleChange}
               required
-              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
             />
           </div>
 
           <div className="space-y-1">
-            <Label className="text-foreground text-sm">You are a</Label>
+            <Label className="text-foreground text-sm font-medium">You are a</Label>
             <RadioGroup
               value={formData.occupation}
               onValueChange={handleOccupationChange}
@@ -135,7 +135,7 @@ export const WebinarForm = () => {
 
           {formData.occupation === 'working' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="jobRole" className="text-foreground text-sm">Job Role</Label>
+              <Label htmlFor="jobRole" className="text-foreground text-sm font-medium">Job Role</Label>
               <Input
                 id="jobRole"
                 name="jobRole"
@@ -143,14 +143,14 @@ export const WebinarForm = () => {
                 value={formData.jobRole}
                 onChange={handleChange}
                 required
-                className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+                className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
               />
             </div>
           )}
 
           {formData.occupation === 'student' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="degree" className="text-foreground text-sm">Current Course/Degree</Label>
+              <Label htmlFor="degree" className="text-foreground text-sm font-medium">Current Course/Degree</Label>
               <Input
                 id="degree"
                 name="degree"
@@ -158,7 +158,7 @@ export const WebinarForm = () => {
                 value={formData.degree}
                 onChange={handleChange}
                 required
-                className="h-8 bg-secondary border-border focus:ring-accent text-sm"
+                className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
               />
             </div>
           )}
