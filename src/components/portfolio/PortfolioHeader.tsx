@@ -14,6 +14,14 @@
      return () => window.removeEventListener('scroll', handleScroll);
    }, []);
  
+  const handleWebinarClick = () => {
+    navigate('/webinar');
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank');
+  };
+
    return (
      <header
        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,7 +37,8 @@
             <Button 
               variant="outline" 
               size="default" 
-              onClick={() => navigate('/webinar')}
+              type="button"
+              onClick={handleWebinarClick}
               className="hidden sm:inline-flex"
             >
               Join Webinar
@@ -37,7 +46,8 @@
             <Button 
               variant="cta" 
               size="default" 
-              onClick={() => window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank')}
+              type="button"
+              onClick={handleWhatsAppClick}
               className="text-primary"
             >
               Work With Me

@@ -2,7 +2,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle } from 'lucide-react';
  
  export const PortfolioCTA = () => {
-  const whatsappUrl = 'https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you';
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank');
+  };
  
    return (
      <section className="section-padding bg-primary">
@@ -18,7 +20,8 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
           <Button 
             variant="hero" 
             size="xl" 
-            onClick={() => window.open(whatsappUrl, '_blank')}
+            type="button"
+            onClick={handleWhatsAppClick}
             className="text-primary"
           >
             <MessageCircle className="mr-2 w-5 h-5" />
