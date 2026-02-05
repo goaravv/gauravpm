@@ -50,7 +50,7 @@ const highlights = [
    };
  
    return (
-    <section className="section-padding bg-background">
+    <section id="metrics-showcase" className="section-padding bg-background">
        <div className="container-narrow mx-auto">
          <div className="text-center mb-8">
           <span className="text-accent font-semibold text-sm uppercase tracking-wider block">

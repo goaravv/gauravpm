@@ -25,14 +25,24 @@
            <span className="text-xl md:text-2xl font-heading font-bold text-foreground">
              Gaurav Sharma
            </span>
+          <div className="flex items-center gap-3">
+            <Button 
+              variant="outline" 
+              size="default" 
+              onClick={() => navigate('/webinar')}
+              className="hidden sm:inline-flex"
+            >
+              Join Webinar
+            </Button>
             <Button 
               variant="cta" 
               size="default" 
               onClick={() => window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank')}
               className="text-primary"
             >
-             Work With Me
-           </Button>
+              Work With Me
+            </Button>
+          </div>
          </div>
        </div>
      </header>
