@@ -50,7 +50,7 @@ import gauravHero from '@/assets/gaurav-hero.png';
                  variant="outline"
                  size="lg"
                  onClick={scrollToWork}
-                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                className="border-primary-foreground/30 text-primary bg-primary-foreground hover:bg-primary-foreground/80 hover:text-primary"
                >
                  View My Work
                </Button>
