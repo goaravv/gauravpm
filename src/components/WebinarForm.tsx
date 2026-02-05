@@ -61,7 +61,7 @@ export const WebinarForm = () => {
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Label htmlFor="name" className="text-foreground">Full Name</Label>
             <Input
               id="name"
@@ -70,11 +70,11 @@ export const WebinarForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="h-11 bg-secondary border-border focus:ring-accent"
+              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Label htmlFor="email" className="text-foreground">Email Address</Label>
             <Input
               id="email"
@@ -84,11 +84,11 @@ export const WebinarForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="h-11 bg-secondary border-border focus:ring-accent"
+              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Label htmlFor="phone" className="text-foreground">Contact Number</Label>
             <Input
               id="phone"
@@ -98,11 +98,11 @@ export const WebinarForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="h-11 bg-secondary border-border focus:ring-accent"
+              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Label htmlFor="city" className="text-foreground">City</Label>
             <Input
               id="city"
@@ -111,30 +111,30 @@ export const WebinarForm = () => {
               value={formData.city}
               onChange={handleChange}
               required
-              className="h-11 bg-secondary border-border focus:ring-accent"
+              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label className="text-foreground">You are a</Label>
             <RadioGroup
               value={formData.occupation}
               onValueChange={handleOccupationChange}
-              className="flex gap-4"
+              className="flex gap-3"
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="working" id="working" />
-                <Label htmlFor="working" className="font-normal cursor-pointer">Working Professional</Label>
+                <Label htmlFor="working" className="font-normal cursor-pointer text-sm">Working Professional</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="student" id="student" />
-                <Label htmlFor="student" className="font-normal cursor-pointer">Student</Label>
+                <Label htmlFor="student" className="font-normal cursor-pointer text-sm">Student</Label>
               </div>
             </RadioGroup>
           </div>
 
           {formData.occupation === 'working' && (
-            <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
               <Label htmlFor="jobRole" className="text-foreground">Job Role</Label>
               <Input
                 id="jobRole"
@@ -143,13 +143,13 @@ export const WebinarForm = () => {
                 value={formData.jobRole}
                 onChange={handleChange}
                 required
-                className="h-11 bg-secondary border-border focus:ring-accent"
+                className="h-9 bg-secondary border-border focus:ring-accent text-sm"
               />
             </div>
           )}
 
           {formData.occupation === 'student' && (
-            <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
               <Label htmlFor="degree" className="text-foreground">Current Course/Degree</Label>
               <Input
                 id="degree"
@@ -158,7 +158,7 @@ export const WebinarForm = () => {
                 value={formData.degree}
                 onChange={handleChange}
                 required
-                className="h-11 bg-secondary border-border focus:ring-accent"
+                className="h-9 bg-secondary border-border focus:ring-accent text-sm"
               />
             </div>
           )}
@@ -167,7 +167,7 @@ export const WebinarForm = () => {
             type="submit"
             variant="hero"
             size="xl"
-            className="w-full mt-4"
+            className="w-full mt-3"
             disabled={isLoading || !formData.occupation}
           >
             {isLoading ? (
