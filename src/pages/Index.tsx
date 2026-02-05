@@ -5,7 +5,6 @@ import { TrustStrip } from '@/components/TrustStrip';
 import { AboutSection } from '@/components/AboutSection';
 import { LearningChecklist } from '@/components/LearningChecklist';
 import { ImageGallery } from '@/components/ImageGallery';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { WhatYouGetSection } from '@/components/WhatYouGetSection';
 import { FAQSection } from '@/components/FAQSection';
 import { CTASection } from '@/components/CTASection';
@@ -32,7 +31,6 @@ const LandingPageContent = () => {
         <AboutSection />
         <LearningChecklist />
         <ImageGallery />
-        <TestimonialsSection />
         <WhatYouGetSection />
         <FAQSection />
         <CTASection />

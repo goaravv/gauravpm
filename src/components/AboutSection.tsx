@@ -1,6 +1,14 @@
 import { CheckCircle } from 'lucide-react';
-import gauravProfile from '@/assets/event-1.jpg';
-const credentials = ['Performance Marketing Expert with 12+ years of hands-on experience', 'Managed over ₹50 Crore in ad spend across industries', 'Built 200+ high-converting funnels for businesses of all sizes', 'Trained 5,000+ marketers and business owners'];
+ 
+ const credentials = [
+   'Ex-Agency Founder',
+   '10K+ followers on LinkedIn',
+   'Recognized by Google Search Central',
+   'Worked with 70+ brands',
+   'Delivered up to 9X ROAS for D2C brands',
+   'Generated ₹1 Cr+ in net sales through paid campaigns',
+ ];
+ 
 export const AboutSection = () => {
   return <section className="section-padding bg-background">
       <div className="container-narrow mx-auto">
@@ -28,19 +36,22 @@ export const AboutSection = () => {
             </h2>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm not just a trainer – I'm a practitioner. Every strategy I teach comes from real-world execution, not textbooks. I've spent over a decade in the trenches of performance marketing, managing massive ad budgets and building funnels that actually convert.
+              I'm a Performance Marketer with 7+ years of experience helping brands grow profitably through data-driven advertising. My work is focused on scaling sales, leads, ROAS, and long-term business growth using performance marketing across Google Ads and Meta Ads.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My mission is simple: to help businesses and marketers generate consistent, profitable results through strategic advertising – without wasting money on what doesn't work.
+              I've worked with D2C brands and service businesses to build predictable, conversion-focused ad systems that prioritize revenue over vanity metrics.
             </p>
 
+            <div className="pt-2">
+              <h3 className="text-lg font-semibold text-foreground mb-3">Credibility & Results</h3>
             <ul className="space-y-3 pt-2">
               {credentials.map((credential, index) => <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">{credential}</span>
                 </li>)}
             </ul>
+            </div>
           </div>
         </div>
       </div>
