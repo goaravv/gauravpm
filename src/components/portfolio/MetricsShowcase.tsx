@@ -1,5 +1,9 @@
 import { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, TrendingUp, IndianRupee, Target, BarChart3 } from 'lucide-react';
+import ecommerceSale1 from '@/assets/ecommerce-sale-1.png';
+import ecommerceSale2 from '@/assets/ecommerce-sale-2.png';
+import evCompanyLead from '@/assets/ev-company-lead.png';
+import aiCompanyLead from '@/assets/ai-company-lead.png';
  import adMetrics4 from '@/assets/ad-metrics-4.png';
  import adMetrics6 from '@/assets/ad-metrics-6.png';
  import adMetrics7 from '@/assets/ad-metrics-7.png';
@@ -10,6 +14,10 @@ import adMetrics11 from '@/assets/ad-metrics-11.png';
 import adMetrics12 from '@/assets/ad-metrics-12.png';
  
  const metrics = [
+  { src: ecommerceSale1, alt: 'E-commerce ₹64L Revenue', label: '₹64L+ E-commerce Revenue' },
+  { src: ecommerceSale2, alt: 'E-commerce ₹1 Cr Revenue', label: '₹1 Cr+ E-commerce Sales' },
+  { src: evCompanyLead, alt: 'EV Company Leads', label: 'EV Company Lead Gen' },
+  { src: aiCompanyLead, alt: 'AI Company Leads', label: 'AI Company Campaigns' },
   { src: adMetrics4, alt: 'Campaign metrics', label: 'Campaign Performance' },
   { src: adMetrics6, alt: 'Ad performance', label: 'Ad Results' },
   { src: adMetrics7, alt: 'ROAS data', label: 'ROAS Analysis' },
