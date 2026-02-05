@@ -18,7 +18,7 @@ const stats = [
   },
   {
     icon: Award,
-    value: '12+',
+    value: '7+',
     label: 'Years Experience',
   },
 ];
