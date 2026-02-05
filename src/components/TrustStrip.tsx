@@ -3,7 +3,7 @@ import { TrendingUp, Users, Target, Award } from 'lucide-react';
 const stats = [
   {
     icon: TrendingUp,
-    value: '₹50 Cr+',
+    value: '₹5 Cr+',
     label: 'Ad Spend Managed',
   },
   {
