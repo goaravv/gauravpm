@@ -44,7 +44,7 @@ export const HeroSection = () => {
               <div className="relative bg-card rounded-2xl overflow-hidden shadow-2xl border border-border">
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/S50UzIJK5_8?autoplay=1&mute=1&rel=0"
+                    src="https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0"
                     title="Webinar Preview"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -108,7 +108,7 @@ export const HeroSection = () => {
             <div className="relative bg-card rounded-xl overflow-hidden shadow-xl border border-border">
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/S50UzIJK5_8?autoplay=1&mute=1&rel=0&playsinline=1"
+                  src="https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0&playsinline=1"
                   title="Webinar Preview"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
