@@ -8,6 +8,7 @@ import { useFormContext } from '@/context/FormContext';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
+import { trackLead, trackCompleteRegistration } from './FacebookPixelTracker';
 
 const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/mom6xl6uftrr9y7f9l4lwpve0xv37uu8';
 
@@ -87,6 +88,10 @@ export const WebinarForm = () => {
         mode: 'no-cors', // Required for cross-origin webhooks
         body: leadData.toString(),
       });
+
+      // Track Facebook Pixel events
+      trackLead({ content_name: 'Webinar Registration' });
+      trackCompleteRegistration({ content_name: 'Webinar Registration' });
 
       // Success - close form and redirect
       setIsLoading(false);
