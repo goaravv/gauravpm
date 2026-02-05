@@ -7,6 +7,9 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useFormContext } from '@/context/FormContext';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { z } from 'zod';
+import { useToast } from '@/hooks/use-toast';
+
+const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/mom6xl6uftrr9y7f9l4lwpve0xv37uu8';
 
 const formSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
@@ -33,6 +36,7 @@ export const WebinarForm = () => {
   const { isFormOpen, closeForm, setIsSubmitted } = useFormContext();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,13 +64,43 @@ export const WebinarForm = () => {
     }
     
     setIsLoading(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsLoading(false);
-    closeForm();
-    setIsSubmitted(true);
+
+    try {
+      // Prepare data for CRM/Google Sheets
+      const leadData = {
+        Name: formData.name.trim(),
+        Email: formData.email.trim(),
+        Phone: formData.phone.trim(),
+        City: formData.city.trim(),
+        Occupation_Type: formData.occupation === 'working' ? 'Working Professional' : 'Student',
+        Job_Role: formData.occupation === 'working' ? formData.jobRole.trim() : '',
+        Degree: formData.occupation === 'student' ? formData.degree.trim() : '',
+        Submitted_At: new Date().toISOString(),
+      };
+
+      // Send to Make.com webhook
+      await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors', // Required for cross-origin webhooks
+        body: JSON.stringify(leadData),
+      });
+
+      // Success - close form and redirect
+      setIsLoading(false);
+      closeForm();
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsLoading(false);
+      toast({
+        title: 'Submission Error',
+        description: 'There was an issue submitting your registration. Please try again.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
