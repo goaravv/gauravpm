@@ -7,7 +7,7 @@ import gauravHero from '@/assets/gaurav-hero.png';
    const navigate = useNavigate();
  
    const scrollToWork = () => {
-     document.getElementById('funnel-showcase')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('metrics-showcase')?.scrollIntoView({ behavior: 'smooth' });
    };
  
    return (
