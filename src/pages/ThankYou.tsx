@@ -1,9 +1,9 @@
  import { Button } from '@/components/ui/button';
  import { CheckCircle, MessageCircle, Calendar, Clock, Users } from 'lucide-react';
- import gauravProfile from '@/assets/gaurav-profile.jpg';
  
  export const ThankYou = () => {
    const whatsappLink = 'https://chat.whatsapp.com/J7wBxhd6K3rA61XMFB7GCe?mode=gi_t';
+   const gauravImage = '/lovable-uploads/4619ba86-0da1-4ea6-85f7-3102cc862f13.jpg';
  
    return (
      <div className="min-h-screen bg-secondary flex items-center justify-center px-4 py-12">
@@ -28,9 +28,9 @@
            {/* Host Info */}
            <div className="flex items-center justify-center gap-4 mb-8 p-4 bg-secondary rounded-xl animate-fade-in-up animation-delay-200">
              <img 
-               src={gauravProfile} 
+               src={gauravImage} 
                alt="Gaurav" 
-               className="w-16 h-16 rounded-full object-cover border-2 border-accent"
+               className="w-20 h-20 rounded-full object-cover border-2 border-accent"
              />
              <div className="text-left">
                <p className="font-semibold text-foreground">Gaurav</p>
