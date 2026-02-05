@@ -1,53 +1,39 @@
-import { FormProvider, useFormContext } from '@/context/FormContext';
-import { Header } from '@/components/Header';
-import { HeroSection } from '@/components/HeroSection';
-import { TrustStrip } from '@/components/TrustStrip';
-import { AboutSection } from '@/components/AboutSection';
-import { LearningChecklist } from '@/components/LearningChecklist';
-import { ImageGallery } from '@/components/ImageGallery';
-import { WhatYouGetSection } from '@/components/WhatYouGetSection';
-import { FAQSection } from '@/components/FAQSection';
-import { CTASection } from '@/components/CTASection';
-import { Footer } from '@/components/Footer';
-import { WebinarForm } from '@/components/WebinarForm';
-import { StickyMobileCTA } from '@/components/StickyMobileCTA';
-import { ThankYouPage } from '@/components/ThankYouPage';
-import { AdMetricsSection } from '@/components/AdMetricsSection';
-
-const LandingPageContent = () => {
-  const { isSubmitted } = useFormContext();
-
-  if (isSubmitted) {
-    return <ThankYouPage />;
-  }
-
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <HeroSection />
-        <TrustStrip />
-        <AdMetricsSection />
-        <AboutSection />
-        <LearningChecklist />
-        <ImageGallery />
-        <WhatYouGetSection />
-        <FAQSection />
-        <CTASection />
-      </main>
-      <Footer />
-      <WebinarForm />
-      <StickyMobileCTA />
-    </div>
-  );
-};
-
-const Index = () => {
-  return (
-    <FormProvider>
-      <LandingPageContent />
-    </FormProvider>
-  );
-};
+ import { PortfolioHeader } from '@/components/portfolio/PortfolioHeader';
+ import { PortfolioHero } from '@/components/portfolio/PortfolioHero';
+ import { AuthorityStats } from '@/components/portfolio/AuthorityStats';
+ import { PortfolioAbout } from '@/components/portfolio/PortfolioAbout';
+ import { EcosystemSection } from '@/components/portfolio/EcosystemSection';
+ import { FunnelShowcase } from '@/components/portfolio/FunnelShowcase';
+ import { MetricsShowcase } from '@/components/portfolio/MetricsShowcase';
+ import { EventsSection } from '@/components/portfolio/EventsSection';
+ import { PortfolioTestimonials } from '@/components/portfolio/PortfolioTestimonials';
+ import { AchievementsSection } from '@/components/portfolio/AchievementsSection';
+ import { PortfolioFAQ } from '@/components/portfolio/PortfolioFAQ';
+ import { PortfolioCTA } from '@/components/portfolio/PortfolioCTA';
+ import { Footer } from '@/components/Footer';
+ import { PortfolioStickyMobileCTA } from '@/components/portfolio/PortfolioStickyMobileCTA';
+ 
+ const Index = () => {
+   return (
+     <div className="min-h-screen">
+       <PortfolioHeader />
+       <main>
+         <PortfolioHero />
+         <AuthorityStats />
+         <PortfolioAbout />
+         <EcosystemSection />
+         <FunnelShowcase />
+         <MetricsShowcase />
+         <EventsSection />
+         <PortfolioTestimonials />
+         <AchievementsSection />
+         <PortfolioFAQ />
+         <PortfolioCTA />
+       </main>
+       <Footer />
+       <PortfolioStickyMobileCTA />
+     </div>
+   );
+ };
 
 export default Index;
