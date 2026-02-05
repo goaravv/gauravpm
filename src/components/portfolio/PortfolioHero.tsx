@@ -84,7 +84,7 @@ import gauravHero from '@/assets/gaurav-hero.png';
               </div>
               <div className="absolute bottom-1/4 -left-6 bg-card text-foreground px-4 py-2 rounded-lg text-sm shadow-lg border border-border animate-float animation-delay-100 flex items-center gap-2">
                 <Bot className="w-4 h-4 text-accent" />
-                <span className="text-accent font-bold">200+</span> Campaigns
+               <span className="text-accent font-bold">500+</span> Campaigns
               </div>
              </div>
            </div>

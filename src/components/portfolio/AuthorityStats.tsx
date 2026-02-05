@@ -8,7 +8,7 @@
    },
    {
      icon: Rocket,
-     value: '200+',
+    value: '500+',
      label: 'Campaigns Executed',
    },
    {
