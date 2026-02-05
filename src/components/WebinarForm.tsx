@@ -3,13 +3,36 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
- import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useFormContext } from '@/context/FormContext';
 import { ArrowRight, Loader2 } from 'lucide-react';
+import { z } from 'zod';
+
+const formSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
+  email: z.string().trim().min(1, 'Email is required').email('Please enter a valid email'),
+  phone: z.string().trim().min(1, 'Contact number is required').min(10, 'Please enter a valid phone number'),
+  city: z.string().trim().min(1, 'City is required').max(100, 'City must be less than 100 characters'),
+  occupation: z.enum(['working', 'student'], { required_error: 'Please select an option' }),
+  jobRole: z.string().optional(),
+  degree: z.string().optional(),
+}).refine((data) => {
+  if (data.occupation === 'working' && (!data.jobRole || data.jobRole.trim() === '')) {
+    return false;
+  }
+  return true;
+}, { message: 'Job role is required', path: ['jobRole'] })
+.refine((data) => {
+  if (data.occupation === 'student' && (!data.degree || data.degree.trim() === '')) {
+    return false;
+  }
+  return true;
+}, { message: 'Degree is required', path: ['degree'] });
 
 export const WebinarForm = () => {
   const { isFormOpen, closeForm, setIsSubmitted } = useFormContext();
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +45,20 @@ export const WebinarForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+    
+    const result = formSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+    
     setIsLoading(true);
     
     // Simulate API call
@@ -62,20 +99,20 @@ export const WebinarForm = () => {
         
         <form onSubmit={handleSubmit} className="space-y-3 mt-3">
           <div className="space-y-1">
-            <Label htmlFor="name" className="text-foreground text-sm font-medium">Full Name</Label>
+            <Label htmlFor="name" className="text-foreground text-sm font-medium">Full Name <span className="text-destructive">*</span></Label>
             <Input
               id="name"
               name="name"
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleChange}
-              required
-              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+              className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.name ? 'border-destructive' : 'border-input'}`}
             />
+            {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="email" className="text-foreground text-sm font-medium">Email Address</Label>
+            <Label htmlFor="email" className="text-foreground text-sm font-medium">Email Address <span className="text-destructive">*</span></Label>
             <Input
               id="email"
               name="email"
@@ -83,13 +120,13 @@ export const WebinarForm = () => {
               placeholder="your@email.com"
               value={formData.email}
               onChange={handleChange}
-              required
-              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+              className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.email ? 'border-destructive' : 'border-input'}`}
             />
+            {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="phone" className="text-foreground text-sm font-medium">Contact Number</Label>
+            <Label htmlFor="phone" className="text-foreground text-sm font-medium">Contact Number <span className="text-destructive">*</span></Label>
             <Input
               id="phone"
               name="phone"
@@ -97,26 +134,26 @@ export const WebinarForm = () => {
               placeholder="+91 98765 43210"
               value={formData.phone}
               onChange={handleChange}
-              required
-              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+              className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.phone ? 'border-destructive' : 'border-input'}`}
             />
+            {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="city" className="text-foreground text-sm font-medium">City</Label>
+            <Label htmlFor="city" className="text-foreground text-sm font-medium">City <span className="text-destructive">*</span></Label>
             <Input
               id="city"
               name="city"
               placeholder="e.g. Mumbai, Delhi, Bangalore"
               value={formData.city}
               onChange={handleChange}
-              required
-              className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+              className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.city ? 'border-destructive' : 'border-input'}`}
             />
+            {errors.city && <p className="text-xs text-destructive">{errors.city}</p>}
           </div>
 
           <div className="space-y-1">
-            <Label className="text-foreground text-sm font-medium">You are a</Label>
+            <Label className="text-foreground text-sm font-medium">You are a <span className="text-destructive">*</span></Label>
             <RadioGroup
               value={formData.occupation}
               onValueChange={handleOccupationChange}
@@ -131,35 +168,36 @@ export const WebinarForm = () => {
                 <Label htmlFor="student" className="font-normal cursor-pointer text-sm">Student</Label>
               </div>
             </RadioGroup>
+            {errors.occupation && <p className="text-xs text-destructive">{errors.occupation}</p>}
           </div>
 
           {formData.occupation === 'working' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="jobRole" className="text-foreground text-sm font-medium">Job Role</Label>
+              <Label htmlFor="jobRole" className="text-foreground text-sm font-medium">Job Role <span className="text-destructive">*</span></Label>
               <Input
                 id="jobRole"
                 name="jobRole"
                 placeholder="e.g. Marketing Manager, Founder, Freelancer"
                 value={formData.jobRole}
                 onChange={handleChange}
-                required
-                className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+                className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.jobRole ? 'border-destructive' : 'border-input'}`}
               />
+              {errors.jobRole && <p className="text-xs text-destructive">{errors.jobRole}</p>}
             </div>
           )}
 
           {formData.occupation === 'student' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="degree" className="text-foreground text-sm font-medium">Current Course/Degree</Label>
+              <Label htmlFor="degree" className="text-foreground text-sm font-medium">Current Course/Degree <span className="text-destructive">*</span></Label>
               <Input
                 id="degree"
                 name="degree"
                 placeholder="e.g. BBA, MBA, B.Tech"
                 value={formData.degree}
                 onChange={handleChange}
-                required
-                className="h-9 bg-background border border-input shadow-sm focus:ring-accent text-sm"
+                className={`h-9 bg-background border shadow-sm focus:ring-accent text-sm ${errors.degree ? 'border-destructive' : 'border-input'}`}
               />
+              {errors.degree && <p className="text-xs text-destructive">{errors.degree}</p>}
             </div>
           )}
           
@@ -168,7 +206,7 @@ export const WebinarForm = () => {
             variant="hero"
             size="lg"
             className="w-full mt-2 h-10 text-sm"
-            disabled={isLoading || !formData.occupation}
+            disabled={isLoading}
           >
             {isLoading ? (
               <>
