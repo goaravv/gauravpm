@@ -50,19 +50,19 @@ export const WebinarForm = () => {
 
   return (
     <Dialog open={isFormOpen} onOpenChange={closeForm}>
-      <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto mx-4">
+      <DialogContent className="sm:max-w-md bg-card border-border max-h-[90vh] overflow-y-auto mx-4 p-4 sm:p-6">
         <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl font-heading text-center text-foreground">
+          <DialogTitle className="text-lg sm:text-xl font-heading text-center text-foreground">
             Register for the Webinar
           </DialogTitle>
-          <p className="text-center text-muted-foreground mt-2">
+          <p className="text-center text-muted-foreground text-sm mt-1">
             Fill in your details to secure your spot
           </p>
         </DialogHeader>
         
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-3 mt-3">
           <div className="space-y-1">
-            <Label htmlFor="name" className="text-foreground">Full Name</Label>
+            <Label htmlFor="name" className="text-foreground text-sm">Full Name</Label>
             <Input
               id="name"
               name="name"
@@ -70,12 +70,12 @@ export const WebinarForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="email" className="text-foreground">Email Address</Label>
+            <Label htmlFor="email" className="text-foreground text-sm">Email Address</Label>
             <Input
               id="email"
               name="email"
@@ -84,12 +84,12 @@ export const WebinarForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="phone" className="text-foreground">Contact Number</Label>
+            <Label htmlFor="phone" className="text-foreground text-sm">Contact Number</Label>
             <Input
               id="phone"
               name="phone"
@@ -98,12 +98,12 @@ export const WebinarForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
           
           <div className="space-y-1">
-            <Label htmlFor="city" className="text-foreground">City</Label>
+            <Label htmlFor="city" className="text-foreground text-sm">City</Label>
             <Input
               id="city"
               name="city"
@@ -111,23 +111,23 @@ export const WebinarForm = () => {
               value={formData.city}
               onChange={handleChange}
               required
-              className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+              className="h-8 bg-secondary border-border focus:ring-accent text-sm"
             />
           </div>
 
-          <div className="space-y-1.5">
-            <Label className="text-foreground">You are a</Label>
+          <div className="space-y-1">
+            <Label className="text-foreground text-sm">You are a</Label>
             <RadioGroup
               value={formData.occupation}
               onValueChange={handleOccupationChange}
-              className="flex gap-3"
+              className="flex gap-4"
             >
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="working" id="working" />
+                <RadioGroupItem value="working" id="working" className="h-4 w-4" />
                 <Label htmlFor="working" className="font-normal cursor-pointer text-sm">Working Professional</Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="student" id="student" />
+                <RadioGroupItem value="student" id="student" className="h-4 w-4" />
                 <Label htmlFor="student" className="font-normal cursor-pointer text-sm">Student</Label>
               </div>
             </RadioGroup>
@@ -135,7 +135,7 @@ export const WebinarForm = () => {
 
           {formData.occupation === 'working' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="jobRole" className="text-foreground">Job Role</Label>
+              <Label htmlFor="jobRole" className="text-foreground text-sm">Job Role</Label>
               <Input
                 id="jobRole"
                 name="jobRole"
@@ -143,14 +143,14 @@ export const WebinarForm = () => {
                 value={formData.jobRole}
                 onChange={handleChange}
                 required
-                className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+                className="h-8 bg-secondary border-border focus:ring-accent text-sm"
               />
             </div>
           )}
 
           {formData.occupation === 'student' && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Label htmlFor="degree" className="text-foreground">Current Course/Degree</Label>
+              <Label htmlFor="degree" className="text-foreground text-sm">Current Course/Degree</Label>
               <Input
                 id="degree"
                 name="degree"
@@ -158,7 +158,7 @@ export const WebinarForm = () => {
                 value={formData.degree}
                 onChange={handleChange}
                 required
-                className="h-9 bg-secondary border-border focus:ring-accent text-sm"
+                className="h-8 bg-secondary border-border focus:ring-accent text-sm"
               />
             </div>
           )}
@@ -166,24 +166,24 @@ export const WebinarForm = () => {
           <Button
             type="submit"
             variant="hero"
-            size="xl"
-            className="w-full mt-3"
+            size="lg"
+            className="w-full mt-2 h-10 text-sm"
             disabled={isLoading || !formData.occupation}
           >
             {isLoading ? (
               <>
-                <Loader2 className="animate-spin" />
+                <Loader2 className="animate-spin h-4 w-4" />
                 Registering...
               </>
             ) : (
               <>
                 Secure My Spot
-                <ArrowRight className="ml-2" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </>
             )}
           </Button>
           
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-center text-xs text-muted-foreground">
             You'll get the webinar link on WhatsApp
           </p>
         </form>
