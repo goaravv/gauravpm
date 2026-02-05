@@ -25,7 +25,7 @@ import gauravHero from '@/assets/gaurav-hero.png';
                <span className="text-primary-foreground">Performance Marketing Expert</span>
              </div>
  
-             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold leading-tight text-primary-foreground">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold leading-snug text-primary-foreground">
               Hi, I'm Gaurav Sharma —{' '}
               <span className="text-accent">Performance Marketer</span>{' '}
               & Funnel Strategist Who Drives{' '}
