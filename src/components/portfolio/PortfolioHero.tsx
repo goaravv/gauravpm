@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Zap, Target, Bot } from 'lucide-react';
-import gauravProfile from '@/assets/gaurav-profile.jpg';
+import gauravHero from '@/assets/gaurav-hero.png';
  
  export const PortfolioHero = () => {
    const navigate = useNavigate();
@@ -11,7 +11,7 @@ import gauravProfile from '@/assets/gaurav-profile.jpg';
    };
  
    return (
-     <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-primary">
+    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-primary">
        {/* Decorative background elements */}
        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
        <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
@@ -61,9 +61,9 @@ import gauravProfile from '@/assets/gaurav-profile.jpg';
            <div className="hidden lg:block animate-fade-in-up animation-delay-200">
              <div className="relative">
               {/* Profile Image */}
-              <div className="relative aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-primary-foreground/20">
+              <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-primary-foreground/20">
                 <img
-                  src={gauravProfile}
+                  src={gauravHero}
                   alt="Gaurav Sharma - Performance Marketing Expert"
                   className="w-full h-full object-cover"
                 />
@@ -91,9 +91,9 @@ import gauravProfile from '@/assets/gaurav-profile.jpg';
  
            {/* Mobile Visual */}
            <div className="lg:hidden">
-            <div className="relative aspect-square max-w-xs mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-primary-foreground/20">
+            <div className="relative aspect-[3/4] max-w-xs mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-primary-foreground/20">
               <img
-                src={gauravProfile}
+                src={gauravHero}
                 alt="Gaurav Sharma - Performance Marketing Expert"
                 className="w-full h-full object-cover"
               />

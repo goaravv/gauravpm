@@ -71,48 +71,51 @@ const highlights = [
         </div>
 
         {/* Gallery Header with Controls */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-foreground">Campaign Screenshots</h3>
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll('left')}
-              className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+        {/* Campaign Screenshots Section with Background */}
+        <div className="bg-secondary/50 rounded-2xl p-6 md:p-8 border border-border">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-foreground">Campaign Screenshots</h3>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
-         </div>
  
-         {/* Horizontal scroll container */}
-         <div
-           ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory"
-           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-         >
-           {metrics.map((metric, index) => (
-             <div
-               key={index}
-              className="flex-shrink-0 w-[300px] md:w-[380px] snap-start cursor-pointer group"
-              onClick={() => setSelectedImage(index)}
-             >
-              <div className="bg-card rounded-xl overflow-hidden shadow-md border border-border group-hover:border-accent/50 group-hover:shadow-lg transition-all">
-                 <img
-                   src={metric.src}
-                   alt={metric.alt}
-                   className="w-full h-auto"
-                 />
-                <div className="p-3 bg-muted/50 border-t border-border">
-                  <p className="text-sm font-medium text-foreground text-center">{metric.label}</p>
+          {/* Horizontal scroll container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto pb-2 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {metrics.map((metric, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[300px] md:w-[380px] snap-start cursor-pointer group"
+                onClick={() => setSelectedImage(index)}
+              >
+                <div className="bg-card rounded-xl overflow-hidden shadow-md border border-border group-hover:border-accent/50 group-hover:shadow-lg transition-all">
+                  <img
+                    src={metric.src}
+                    alt={metric.alt}
+                    className="w-full h-auto"
+                  />
+                  <div className="p-3 bg-muted/50 border-t border-border">
+                    <p className="text-sm font-medium text-foreground text-center">{metric.label}</p>
+                  </div>
                 </div>
                </div>
-             </div>
-           ))}
+            ))}
+          </div>
          </div>
 
         {/* Lightbox Modal */}
