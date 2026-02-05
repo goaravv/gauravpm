@@ -1,6 +1,7 @@
- import { Button } from '@/components/ui/button';
- import { useNavigate } from 'react-router-dom';
- import { ArrowRight, TrendingUp, Zap, BarChart3, Target, Bot } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight, TrendingUp, Zap, Target, Bot } from 'lucide-react';
+import gauravProfile from '@/assets/gaurav-profile.jpg';
  
  export const PortfolioHero = () => {
    const navigate = useNavigate();
@@ -25,7 +26,9 @@
              </div>
  
              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold leading-tight text-primary-foreground">
-               Performance Marketing, Funnels & AI Systems That Drive{' '}
+              Hi, I'm Gaurav Sharma —{' '}
+              <span className="text-accent">Performance Marketer</span>{' '}
+              & Funnel Strategist Who Drives{' '}
                <span className="text-accent">Consistent Sales</span>
              </h1>
  
@@ -34,8 +37,13 @@
              </p>
  
              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-               <Button variant="hero" size="lg" onClick={() => navigate('/webinar')}>
-                 Join Webinar
+              <Button 
+                variant="hero" 
+                size="lg" 
+                onClick={() => window.open('https://wa.me/8533990352?text=Hi%20Gaurav%2C%20I%20want%20to%20work%20with%20you', '_blank')}
+                className="text-primary"
+              >
+                Work With Me
                  <ArrowRight className="ml-2" />
                </Button>
                <Button
@@ -49,70 +57,46 @@
              </div>
            </div>
  
-           {/* Right Visual - AI Dashboard Style */}
+          {/* Right Visual - Profile Image */}
            <div className="hidden lg:block animate-fade-in-up animation-delay-200">
              <div className="relative">
-               {/* Main dashboard card */}
-               <div className="bg-card/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 space-y-4">
-                 {/* Header */}
-                 <div className="flex items-center gap-3 pb-4 border-b border-primary-foreground/10">
-                   <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
-                     <BarChart3 className="w-5 h-5 text-accent" />
-                   </div>
-                   <div>
-                     <p className="text-primary-foreground font-semibold">Performance Dashboard</p>
-                     <p className="text-primary-foreground/60 text-sm">Real-time metrics</p>
-                   </div>
-                 </div>
- 
-                 {/* Mini cards grid */}
-                 <div className="grid grid-cols-2 gap-3">
-                   <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                     <TrendingUp className="w-5 h-5 text-accent mb-2" />
-                     <p className="text-primary-foreground/60 text-xs">ROAS</p>
-                     <p className="text-primary-foreground font-bold text-xl">9.2x</p>
-                   </div>
-                   <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                     <Target className="w-5 h-5 text-accent mb-2" />
-                     <p className="text-primary-foreground/60 text-xs">Conversions</p>
-                     <p className="text-primary-foreground font-bold text-xl">2.4K</p>
-                   </div>
-                   <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                     <Zap className="w-5 h-5 text-accent mb-2" />
-                     <p className="text-primary-foreground/60 text-xs">Lead Cost</p>
-                     <p className="text-primary-foreground font-bold text-xl">₹45</p>
-                   </div>
-                   <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                     <Bot className="w-5 h-5 text-accent mb-2" />
-                     <p className="text-primary-foreground/60 text-xs">AI Workflows</p>
-                     <p className="text-primary-foreground font-bold text-xl">12</p>
-                   </div>
-                 </div>
+              {/* Profile Image */}
+              <div className="relative aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-primary-foreground/20">
+                <img
+                  src={gauravProfile}
+                  alt="Gaurav Sharma - Performance Marketing Expert"
+                  className="w-full h-full object-cover"
+                />
                </div>
  
                {/* Floating elements */}
-               <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-float">
-                 🚀 Live Results
+              <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-float flex items-center gap-2">
+                <TrendingUp className="w-4 h-4" />
+                7+ Years
                </div>
-               <div className="absolute -bottom-4 -left-4 bg-card text-foreground px-4 py-2 rounded-lg text-sm shadow-lg border border-border animate-float animation-delay-200">
+              <div className="absolute -bottom-4 -left-4 bg-card text-foreground px-4 py-2 rounded-lg text-sm shadow-lg border border-border animate-float animation-delay-200 flex items-center gap-2">
+                <Target className="w-4 h-4 text-accent" />
                  <span className="text-accent font-bold">+340%</span> Revenue
                </div>
+              <div className="absolute top-1/2 -right-6 bg-card text-foreground px-4 py-2 rounded-lg text-sm shadow-lg border border-border animate-float animation-delay-300 flex items-center gap-2">
+                <Zap className="w-4 h-4 text-accent" />
+                <span className="text-accent font-bold">₹5 Cr+</span> Ad Spend
+              </div>
+              <div className="absolute bottom-1/4 -left-6 bg-card text-foreground px-4 py-2 rounded-lg text-sm shadow-lg border border-border animate-float animation-delay-100 flex items-center gap-2">
+                <Bot className="w-4 h-4 text-accent" />
+                <span className="text-accent font-bold">200+</span> Campaigns
+              </div>
              </div>
            </div>
  
            {/* Mobile Visual */}
            <div className="lg:hidden">
-             <div className="grid grid-cols-2 gap-3">
-               <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                 <TrendingUp className="w-5 h-5 text-accent mb-2" />
-                 <p className="text-primary-foreground/60 text-xs">ROAS</p>
-                 <p className="text-primary-foreground font-bold text-xl">9.2x</p>
-               </div>
-               <div className="bg-primary-foreground/5 rounded-lg p-4 border border-primary-foreground/10">
-                 <Target className="w-5 h-5 text-accent mb-2" />
-                 <p className="text-primary-foreground/60 text-xs">Conversions</p>
-                 <p className="text-primary-foreground font-bold text-xl">2.4K</p>
-               </div>
+            <div className="relative aspect-square max-w-xs mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-primary-foreground/20">
+              <img
+                src={gauravProfile}
+                alt="Gaurav Sharma - Performance Marketing Expert"
+                className="w-full h-full object-cover"
+              />
              </div>
            </div>
          </div>
