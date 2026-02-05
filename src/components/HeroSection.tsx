@@ -1,6 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { useFormContext } from '@/context/FormContext';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+const DESKTOP_BREAKPOINT = 1024; // lg breakpoint
 
 const benefits = [
   'Learn the exact framework to generate qualified leads',
@@ -11,6 +14,28 @@ const benefits = [
 
 export const HeroSection = () => {
   const { openForm } = useFormContext();
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+    };
+    
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
+
+  // Video component to avoid duplicate code
+  const VideoEmbed = ({ isMobile = false }: { isMobile?: boolean }) => (
+    <iframe
+      src={`https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0${isMobile ? '&playsinline=1' : ''}`}
+      title="Webinar Preview"
+      className="w-full h-full"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  );
 
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-primary">
@@ -38,18 +63,12 @@ export const HeroSection = () => {
             Join this exclusive live session and learn the proven strategies that have helped businesses generate crores in revenue through strategic ad campaigns.
           </p>
 
-          {/* Video - Large and Centered */}
+          {/* Video - Large and Centered - Only render on desktop */}
           <div className="w-full max-w-4xl mt-10 animate-fade-in-up animation-delay-200">
             <div className="relative group">
               <div className="relative bg-card rounded-2xl overflow-hidden shadow-2xl border border-border">
                 <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0"
-                    title="Webinar Preview"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                  {isDesktop === true && <VideoEmbed />}
                 </div>
               </div>
               {/* Floating badge */}
@@ -103,17 +122,11 @@ export const HeroSection = () => {
             Join this exclusive live session and learn the proven strategies that have helped businesses generate crores in revenue.
           </p>
 
-          {/* Video - Autoplaying */}
+          {/* Video - Only render on mobile */}
           <div className="relative">
             <div className="relative bg-card rounded-xl overflow-hidden shadow-xl border border-border">
               <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0&playsinline=1"
-                  title="Webinar Preview"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                {isDesktop === false && <VideoEmbed isMobile />}
               </div>
             </div>
             {/* Floating badge */}
