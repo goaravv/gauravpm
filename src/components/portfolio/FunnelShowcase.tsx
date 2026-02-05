@@ -1,5 +1,4 @@
- import { Button } from '@/components/ui/button';
- import { ArrowRight, Users, ShoppingCart, Presentation, Gem } from 'lucide-react';
+import { Users, ShoppingCart, Presentation, Gem } from 'lucide-react';
  
  const funnels = [
    {
@@ -64,7 +63,7 @@
                  </div>
                </div>
  
-               <div className="space-y-3 mb-6">
+              <div className="space-y-3">
                  <div className="flex items-center justify-between text-sm">
                    <span className="text-muted-foreground">Traffic Source</span>
                    <span className="text-foreground font-medium">{funnel.trafficSource}</span>
@@ -74,11 +73,6 @@
                    <span className="text-foreground font-medium">{funnel.conversionGoal}</span>
                  </div>
                </div>
- 
-               <Button variant="outline" size="sm" className="w-full group-hover:border-accent group-hover:text-accent transition-colors">
-                 See How It Works
-                 <ArrowRight className="ml-2 w-4 h-4" />
-               </Button>
              </div>
            ))}
          </div>

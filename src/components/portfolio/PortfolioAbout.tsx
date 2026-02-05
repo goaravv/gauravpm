@@ -1,4 +1,4 @@
- import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Instagram, Linkedin, Twitter } from 'lucide-react';
  
  const credentials = [
    'Performance Marketing & Paid Ads Expert',
@@ -8,6 +8,12 @@
    'Not theory — only execution & results',
  ];
  
+const socialLinks = [
+  { icon: Instagram, href: 'https://instagram.com/marketingaurav', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/gauravsharma64/', label: 'LinkedIn' },
+  { icon: Twitter, href: 'https://x.com/gaurav_sharma64', label: 'X (Twitter)' },
+];
+
  export const PortfolioAbout = () => {
    return (
      <section className="section-padding bg-background">
@@ -56,6 +62,25 @@
                  ))}
                </ul>
              </div>
+
+            {/* Social Links */}
+            <div className="pt-4">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Connect With Me</h3>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
            </div>
          </div>
        </div>
