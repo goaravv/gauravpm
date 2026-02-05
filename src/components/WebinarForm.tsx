@@ -67,25 +67,25 @@ export const WebinarForm = () => {
 
     try {
       // Prepare data for CRM/Google Sheets
-      const leadData = {
-        Name: formData.name.trim(),
-        Email: formData.email.trim(),
-        Phone: formData.phone.trim(),
-        City: formData.city.trim(),
-        Occupation_Type: formData.occupation === 'working' ? 'Working Professional' : 'Student',
-        Job_Role: formData.occupation === 'working' ? formData.jobRole.trim() : '',
-        Degree: formData.occupation === 'student' ? formData.degree.trim() : '',
-        Submitted_At: new Date().toISOString(),
-      };
+      // Using URLSearchParams for better webhook compatibility
+      const leadData = new URLSearchParams();
+      leadData.append('Name', formData.name.trim());
+      leadData.append('Email', formData.email.trim());
+      leadData.append('Phone', formData.phone.trim());
+      leadData.append('City', formData.city.trim());
+      leadData.append('Occupation_Type', formData.occupation === 'working' ? 'Working Professional' : 'Student');
+      leadData.append('Job_Role', formData.occupation === 'working' ? formData.jobRole.trim() : '');
+      leadData.append('Degree', formData.occupation === 'student' ? formData.degree.trim() : '');
+      leadData.append('Submitted_At', new Date().toISOString());
 
       // Send to Make.com webhook
       await fetch(MAKE_WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
         mode: 'no-cors', // Required for cross-origin webhooks
-        body: JSON.stringify(leadData),
+        body: leadData.toString(),
       });
 
       // Success - close form and redirect
