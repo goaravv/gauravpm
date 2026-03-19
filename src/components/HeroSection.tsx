@@ -29,7 +29,7 @@ export const HeroSection = () => {
   // Video component to avoid duplicate code
   const VideoEmbed = ({ isMobile = false }: { isMobile?: boolean }) => (
     <iframe
-      src={`https://www.youtube.com/embed/MHWsXVyicRg?autoplay=1&mute=0&rel=0${isMobile ? '&playsinline=1' : ''}`}
+      src={`https://www.youtube.com/embed/ozxGRH0Bx8c?autoplay=1&mute=0&rel=0${isMobile ? '&playsinline=1' : ''}`}
       title="Webinar Preview"
       className="w-full h-full"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
